@@ -1,2 +1,2 @@
-# testing
+# tests
 Testing projects
