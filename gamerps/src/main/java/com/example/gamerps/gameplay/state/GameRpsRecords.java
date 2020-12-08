@@ -8,11 +8,7 @@ import java.util.List;
  */
 public class GameRpsRecords implements IGameRecords {
 
-    private final List<GameRoundResult> gameRoundsPlayedResult;
-
-    public GameRpsRecords() {
-        this.gameRoundsPlayedResult = new ArrayList<>();
-    }
+    private final List<GameRoundResult> gameRoundsPlayedResult = new ArrayList<>();
 
     @Override
     public List<GameRoundResult> getGameRoundsPlayedResult() {

@@ -8,7 +8,7 @@ import com.example.gamerps.gameplay.element.Player;
 import com.example.gamerps.gameplay.element.Weapon;
 
 /**
- * Standard Winner calculator to Rock-paper-scissors game.
+ * Standard Winner calculator to Rock-paper-scissors game. This is extended and valid to more than 2 players.
  *
  */
 public class WinnerCalculatorStandardRpc implements IWinnerCalculator {
