@@ -3,4 +3,4 @@ Testing projects
 
 | Project  | Description |
 | ---------------- | ---------------------------------------------------|
-| [/gamerps](Rock-paper-scissors) | Rock-paper-scissors Game Spring Boot implementation |
+| [Rock-paper-scissors](/gamerps) | Rock-paper-scissors Game Spring Boot implementation |
