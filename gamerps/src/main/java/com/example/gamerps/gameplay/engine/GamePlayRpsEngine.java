@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import java.util.stream.Collectors;
 import javax.annotation.Resource;
 
 import com.example.gamerps.gameplay.element.Player;
@@ -46,6 +47,16 @@ public class GamePlayRpsEngine implements IGamePlayEngine {
     @Override
     public List<GameRoundResult> getGameRoundResults(final String gameSessionId) {
         return gameRpsRecords.get(gameSessionId).getGameRoundsPlayedResult();
+    }
+
+    @Override
+    public List<GameRoundResult> getFullGameRoundResults() {
+        return gameRpsRecords
+                .values()
+                .stream()
+                .map(GameRpsRecords::getGameRoundsPlayedResult)
+                .flatMap(List::stream)
+                .collect(Collectors.toList());
     }
 
     @Override

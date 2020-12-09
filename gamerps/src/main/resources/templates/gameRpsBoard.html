@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+<head>
+    <title>Rock-Paper-Scissors Game</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h1>Rock-Paper-Scissors Board Game, good luck!</h1>
+    <!--<p th:text="'gameSessionId, ' + ${gameSessionId} + '!'" />-->
+    <a href="/startNewGame" class="btn btn-primary"> <i class="fa fa-arrow-circle-o-left"></i>&nbsp;Restart Game</a>
+    <a href="/rpsScoreSummary" class="btn btn-info"> <i class="fa fa-arrow-circle-o-right"></i>&nbsp;Go To Score Summary</a><br/><br/><br/>
+    <form method="post" action="/playRoundRps">
+        <button type="submit">Play Round</button>
+        <input type="hidden" id="gameSessionId" name="gameSessionId" th:value="*{gameSessionId}" />
+    </form>
+    <h4 th:text="'Rounds played: ' + ${gameSessionRounds.size}" />
+    <table border="1">
+        <thead>
+            <tr>
+                <th> Player 1 </th>
+                <th> Player 2 </th>
+                <th> Result </th>
+            </tr>
+        </thead>
+    <tbody>
+	    <tr th:if="${gameSessionRounds.empty}">
+            <td colspan="3"> No Rounds played </td>
+        </tr>
+        <tr th:each="round : ${gameSessionRounds}">
+            <th:block th:each="playerAction : ${round.playerActionViewList}">
+                <td> <span th:text="${playerAction.weapon}"/> </td>
+            </th:block>
+            <td align="center"> <strong><span th:text="${round.roundResult}"></span></strong> </td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
